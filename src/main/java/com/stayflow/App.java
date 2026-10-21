@@ -1,5 +1,9 @@
 package com.stayflow;
 
+import com.stayflow.util.PriceCalculator;
+
+import java.math.BigDecimal;
+
 public class App {
 
     public static final String NAME = "StayFlow ";
@@ -10,10 +14,13 @@ public class App {
         if (args.length == 0) {
             System.out.println("Nie podano argumentów. Przykład: --env=dev");
         } else {
-            for (int i =0; i < args.length; i ++) {
-
-                System.out.println("Argument: " + args[i]);
+            for (String arg : args) {
+                System.out.println("Argument: " + arg);
             }
         }
+
+        System.out.println(PriceCalculator.total(new BigDecimal("199.99"), 3));
+        System.out.println(PriceCalculator.total(new BigDecimal("350.00"), 1));
+        System.out.println(PriceCalculator.total(new BigDecimal("89.50"), 30));
     }
 }
